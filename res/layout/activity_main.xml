@@ -21,7 +21,23 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="79dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="21dp"
         android:text="开启闹钟" />
+
+    <DatePicker
+        android:id="@+id/datepicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startAlarm"
+        android:layout_below="@+id/startAlarm"
+        android:layout_marginTop="36dp" />
+
+    <TimePicker
+        android:id="@+id/timepicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>
