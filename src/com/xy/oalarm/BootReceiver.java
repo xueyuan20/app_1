@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-public class BootBroadcastReceiver extends BroadcastReceiver {
+public class BootReceiver extends BroadcastReceiver {
 
 	private static final String TAG = "Boot";
 
@@ -16,7 +16,7 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
 		String action = intent.getAction();
 		if (action.equals(Intent.ACTION_BOOT_COMPLETED)) {
 			Log.e(TAG, "boot complete");
-			context.startService(new Intent(context, AlarmService.class));
+			context.startService(new Intent(context, OAlarmService.class));
 		}
 	}
 

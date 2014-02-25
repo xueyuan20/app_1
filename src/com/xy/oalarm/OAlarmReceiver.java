@@ -1,21 +1,18 @@
 package com.xy.oalarm;
 
 import java.util.Calendar;
-import java.util.Timer;
 
-import android.app.AlarmManager;
-import android.app.Dialog;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-public class AlarmBroadcastReceiver extends BroadcastReceiver {
-	private static final String TAG = "AlarmReceiver";
+public class OAlarmReceiver extends BroadcastReceiver {
+	private static final String TAG = "XUEYUAN";
 
-	public AlarmBroadcastReceiver(){
+	public OAlarmReceiver(){
 		
 	}
 
@@ -29,9 +26,10 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
 
 			String time = "";
 			// Elaborate mechanism to find out when the day rolls over
+			Bundle bundle = intent.getExtras();
 	        Calendar today = Calendar.getInstance();
-	        today.set(Calendar.HOUR_OF_DAY, 17);
-	        today.set(Calendar.MINUTE, 10);
+	        today.set(Calendar.HOUR_OF_DAY, bundle.getInt(Constant.ALARM_HOUROFDAY));
+	        today.set(Calendar.MINUTE, bundle.getInt(Constant.ALARM_MINUTE));
 	        today.set(Calendar.SECOND, 0);
 	        long alarmTimeUTC = today.getTimeInMillis();
 	        time = String.valueOf(alarmTimeUTC);
@@ -45,12 +43,13 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
 		if (context == null) {
 			return;
 		}
-		AlarmManager am = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-		Intent intent = new Intent(Constant.ACTION_ALARM);
-		PendingIntent sender = PendingIntent.getBroadcast(
-			 context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-		int interval = 60 * 1000;
-		//闹铃间隔， 这里设为1分钟闹一次，在第2步我们将每隔1分钟收到一次广播
-		am.setRepeating(AlarmManager.RTC_WAKEUP, timer, interval, sender);
+//		AlarmManager am = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+//		Intent intent = new Intent(Constant.ACTION_ALARM);
+//		PendingIntent sender = PendingIntent.getBroadcast(
+//			 context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+//		int interval = 60 * 1000;
+//		//闹铃间隔， 这里设为1分钟闹一次，在第2步我们将每隔1分钟收到一次广播
+//		am.setRepeating(AlarmManager.RTC_WAKEUP, timer, interval, sender);
+
 	}
 }

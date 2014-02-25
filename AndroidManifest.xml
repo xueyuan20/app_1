@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name="com.xy.oalarm.AlarmApplication"
+        android:name="com.xy.oalarm.OAlarmApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -24,19 +24,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name="com.xy.oalarm.AlarmBroadcastReceiver">
+        <receiver android:name="com.xy.oalarm.OAlarmReceiver">
             <intent-filter >
                 <action android:name="android.alarm.demo.action"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.xy.oalarm.BootBroadcastReceiver">
+        <receiver android:name="com.xy.oalarm.BootReceiver">
             <intent-filter >
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <category android:name="android.intent.category.HOME"/>
             </intent-filter>
         </receiver>
         <service android:enabled="true"
-            android:name="com.xy.oalarm.AlarmService"></service>
+            android:name="com.xy.oalarm.OAlarmService">
+        </service>
     </application>
 
 </manifest>
