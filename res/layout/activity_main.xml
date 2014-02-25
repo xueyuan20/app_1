@@ -32,4 +32,9 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_centerVertical="true" />
 
+    <Button android:id="@+id/add_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD ALARM"
+        android:layout_below="@id/timepicker" />
 </RelativeLayout>

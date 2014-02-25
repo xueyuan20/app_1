@@ -8,6 +8,7 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name="com.xy.oalarm.OAlarmApplication"
@@ -38,6 +39,8 @@
         <service android:enabled="true"
             android:name="com.xy.oalarm.OAlarmService">
         </service>
+        <provider android:name="com.xy.oalarm.OAlarmProvider"
+            android:authorities="com.xy.oalarm.OAlarmProvider"></provider>
     </application>
 
 </manifest>

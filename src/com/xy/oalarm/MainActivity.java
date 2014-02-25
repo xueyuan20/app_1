@@ -15,10 +15,10 @@ import android.widget.TimePicker;
 public class MainActivity extends Activity {
 	private static final String TAG = "XUEYUAN";
 	private Button mTestAlarm;
-
+	private Button mAddAlarm;
 	private TimePicker mTimePicker;
+
 	private TimeItem mCurrentTime;
-//	private TimeDBHelper mDbHelper;
 	private OAlarmDbManager mDBManager;
 
 	@Override
@@ -53,11 +53,20 @@ public class MainActivity extends Activity {
 				// TODO Auto-generated method stub
 				mCurrentTime.mHourOfDay = hourOfDay;
 				mCurrentTime.mMinuteOfHour = minute;
+			}
+		});
+
+		mAddAlarm = (Button)findViewById(R.id.add_alarm);
+		mAddAlarm.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View view) {
+				// TODO Auto-generated method stub
+
 				((OAlarmApplication)getApplicationContext()).getOAlarmDBManager().insertItem(mCurrentTime);
 				updateAlarms();
 			}
 		});
-
 		/**
 		 * Start Alarm Service
 		 */
@@ -87,12 +96,10 @@ public class MainActivity extends Activity {
 	 */
 	protected void initDB() {
 		Log.i(TAG, "initialize DB!");
-//		mDbHelper = new TimeDBHelper(this);
 		Time today = new Time(Time.getCurrentTimezone());
 		today.setToNow();
 		mCurrentTime = new TimeItem(today.hour, today.minute);
-
-		mDBManager.insertItem(mCurrentTime);
+		mDBManager.insertItem(null);
 	}
 
 

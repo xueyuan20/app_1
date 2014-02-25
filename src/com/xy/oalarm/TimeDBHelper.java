@@ -30,6 +30,7 @@ public class TimeDBHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		Log.i(TAG, "oncreate");
 		mDatabase = db;
+		db.execSQL("DROP TABLE IF EXISTS " + DB_NAME);
 
 		db.execSQL("CREATE TABLE "+DB_NAME +"("
 				+ Constant.ALARM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -69,6 +70,9 @@ public class TimeDBHelper extends SQLiteOpenHelper {
 	}
 
 	public Cursor query(){
+		if (mDatabase == null) {
+			mDatabase = getReadDatabase();
+		}
 		Cursor cursor;
 		Log.i(TAG, "isOpen = "+mDatabase.isOpen());
 		mDatabase = getReadableDatabase();

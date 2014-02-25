@@ -28,5 +28,19 @@ public class Constant {
 	/**
 	 * Alarm Columns
 	 */
-	
+
+	/**
+	 * Message ID : 0, told application to start ring service.
+	 */
+	public static final int MESSAGE_RINGING = 0;
+
+	/**
+	 * Message ID : 1, told application to start show notification.
+	 */
+	public static final int MESSAGE_NOTIFICATION = 1;
+
+	/**
+	 * Message ID : 2, told application to stop playing.
+	 */
+	protected static final int MESSAGE_PLAY_STOP = 2;
 }

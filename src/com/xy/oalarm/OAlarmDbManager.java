@@ -27,7 +27,6 @@ public class OAlarmDbManager {
 		
 	}
 
-
 	protected void updateDB(TimeItem time) {
 		// TODO Auto-generated method stub
 		Log.i(TAG, "update DB!");
@@ -41,6 +40,9 @@ public class OAlarmDbManager {
 
 	protected void insertItem(TimeItem time) {
 		Log.i(TAG, "insert DB!");
+		if (time == null) {
+			return ;
+		}
 		ContentValues values = new ContentValues();
 		values.put(Constant.ALARM_ID, count++);
 		values.put(Constant.ALARM_NAME, "testAlarm");
